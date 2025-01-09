@@ -1,11 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from "../Layout/Layout.jsx";
+import BlogList from "../Components/BlogList.jsx";
+import {postLatest} from "../APIRequest/APIRequest.js";
 
 const HomePage = () => {
+    const [list, setList] = useState([])
+
+    useEffect(()=>{
+        (async()=>{
+            let res = await postLatest()
+            setList(res)
+        })()
+
+    },[])
+
+
+
+
     return (
      <Layout>
-         <h1>This is Home page</h1>
-
+         <BlogList list={list}/>
      </Layout>
     );
 };
