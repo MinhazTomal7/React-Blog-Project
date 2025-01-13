@@ -33,3 +33,35 @@ export async function postLatest() {
         return [];
     }
 }
+
+export async function postByCategory(id) {
+    try {
+        let res = await axios.get(BaseURL + "/post-list/"+id);
+        console.log("Categories response:", res); // Log the response
+        if (res.status === 200) {
+            return res.data;
+        } else {
+            console.error('Failed to fetch categories:', res.status);
+            return [];
+        }
+    } catch (error) {
+        console.error('Error fetching categories:', error);
+        return [];
+    }
+}
+
+export async function postDetails(id) {
+    try {
+        let res = await axios.get(BaseURL + "/post-details/"+id);
+        console.log("Categories response:", res); // Log the response
+        if (res.status === 200) {
+            return res.data;
+        } else {
+            console.error('Failed to fetch categories:', res.status);
+            return [];
+        }
+    } catch (error) {
+        console.error('Error fetching categories:', error);
+        return [];
+    }
+}

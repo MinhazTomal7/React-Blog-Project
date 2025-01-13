@@ -45,12 +45,11 @@ const Layout = (props) => {
                              <li><NavLink to = {"/"}>Home</NavLink></li>
                             {
                                 categories.map((item,index)=> {
-                                    return <li><NavLink to = {"/byCategory/"+item['id']}>{item['name']}</NavLink></li>
+                                    return <li key={index.toString()}><NavLink key={index}
+                                                   to = {"/byCategory/"+item['id']}>{item['name']}</NavLink></li>
                                 })
 
                             }
-
-
 
 
                             <li>
@@ -63,14 +62,15 @@ const Layout = (props) => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <a className="btn btn-ghost text-xl">Code Master  </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><NavLink to={"/"}>Home</NavLink></li>
                         {
                             categories.map((item, index) => {
-                                return <li><NavLink to={"/byCategory/" + item['id']}>{item['name']}</NavLink></li>
+                                return <li key={index.toString()}><NavLink
+                                    to={"/byCategory/" + item['id']}>{item['name']}</NavLink></li>
                             })
 
                         }
